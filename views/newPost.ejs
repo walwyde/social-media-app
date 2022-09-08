@@ -1,0 +1,38 @@
+<!-- <style>
+  label {
+      display: block;
+      margin-bottom: 0.5rem;
+      text-transform: capitalize;
+  }
+  .form-group {
+    margin: 1rem auto;
+    width: 100%;
+  }
+  .container {
+    max-width: 960px;
+    margin: 2rem auto;
+  }
+  input[type=text],
+  textarea {
+    width: 100%;
+    padding: 0.5rem;
+  }
+</style> -->
+<!-- <body> -->
+  <%- include('./partials/nav.ejs') %>
+  <div class="container">
+    <h3 class="py-1 tc">Share With Us</h3>
+    <form action="/posts" method="POST">
+      <div class="form-group">
+        <label for="image">Provide image link (for now)</label>
+        <input type="text" name="post[image]" id="image" required>
+      </div>
+      <div class="form-group">
+        <label for="caption"> Add Caption</label>
+        <textarea name="post[caption]" rows="2"></textarea>
+      </div>
+        <input type="hidden" name="post[time]" value="<% new Date().toDateString() %>">
+        <input type="submit" class="btn btn-secondary" value="Submit"/>
+    </form>
+    </div>
+    <%- include('./partials/footer.ejs') %>

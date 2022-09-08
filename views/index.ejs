@@ -1,0 +1,40 @@
+<%- include("./partials/nav.ejs") %>
+<div class="container">
+<div class="sticker">
+  <% if (!currentUser) { %> 
+    <h4>Please Log In</h4>
+  <%} else { %> 
+    <a href="/newpost"><i class="fas fa-pen fa-lg  "></i> Make a New Post</a>
+  <%} %>
+</div>
+    <% if(posts.length > 0) { %>
+      <% for( var i = 0; i < posts.length; i++){ %>
+
+        <div class="main-post">
+          <div class="image-container">
+            <img src="<%= posts[i].image %>" alt="image" />
+          </div>
+          <p class="caption"><%= posts[i].caption%></p>
+          <div class="reactions">
+            <span class="like">
+              <i class="fas fa-thumbs-up fa-sm "></i>
+            </span>
+            <span class="love">
+              <i class="fas fa-heart fa-sm"></i>
+            </span>
+            <span class="dislike">
+              <i class="fas fa-thumbs-down fa-sm "></i>
+            </span>
+            <span class="comments">
+             <a href="/posts/<%=posts[i].id%>"><i class="fas fa-comments fa-sm  "></i></a>
+             <small><%=posts[i].comments.length%></small>
+            </span>
+          </div>
+        </div>
+        <% } %>
+    <% } else { %>
+      <h2>there are no posts here yet</h2>
+    <% } %>
+
+</div>
+ <%- include("./partials/footer.ejs") %>

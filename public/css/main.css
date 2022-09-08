@@ -1,0 +1,246 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+:root {
+  --primary-color: #122667;
+  --secondary-color: #486cdf;
+  --dark-color: #333;
+  --light-color: #e0e0e0;
+}
+html,
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  /* padding-top: 2rem; */
+  line-height: 1.5;
+  background: #e0e0e06d;
+}
+#main-nav {
+  background: var(--primary-color);
+  /* position: fixed; */
+  /* top: 0; */
+  /* left: 0; */
+  /* width: 100%; */
+  overflow: auto;
+  /* opacity: 0.9; */
+  color: fff;
+}
+
+#main-nav ul li a,
+#main-nav a {
+  /* color: var(--primary-color); */
+  padding: 1rem 0.5rem;
+  color: #fff;
+}
+#main-nav ul li a:hover {
+  background: #486cdf;
+  color: var(--primary-color)
+}
+#main-nav .nav-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 1100px;
+  padding: 1rem;
+  margin: auto;
+}
+#main-nav ul {
+  justify-self: end;
+  align-self: center;
+}
+#main-nav ul li {
+  float: left;
+}
+.container {
+  max-width: 960px;
+  padding: 2rem;
+  margin: 0.5rem auto;
+}
+.tc {
+  text-align: center;
+}
+.postcard {
+  width: 80%;
+  padding: 1rem;
+  margin: 2rem auto;
+}
+.new-comment-form {
+  width: 70%;
+  /* margin: 1rem auto; */
+}
+.new-comment-form label {
+  display: block;
+}
+.new-comment-form input,
+.new-comment-form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  display: block;
+}
+.post-container form {
+  display: inline-block;
+  margin: 0.5rem 0;
+}
+/* Utilities */
+.py-1 {
+  padding: 1rem;
+}
+.py-2 {
+  padding: 1.5rem;
+}
+.py-3 {
+  padding: 2.5rem;
+}
+.btn:hover {
+  opacity: 0.8;
+  border-radius: 8px;
+}
+.btn {
+  display: inline;
+  padding: 0.5rem;
+  background: #333;
+  transition: all 0.4s ease-in;
+  border: none;
+  color: #fff;
+  margin: 0.5rem;
+}
+.btn-primary {
+  background: var(--primary-color);
+}
+.btn-secondary {
+  background: var(--secondary-color);
+}
+.btn-light {
+  background: #777;
+}
+.m-auto {
+  margin: 0 auto;
+}
+.my-1 {margin: 0.5rem 0;}
+.my-2 {margin: 1rem 0;}
+.my-3 {margin: 1.5rem 0;}
+
+.bg-secondary {background: #486cdf;}
+.form-group input,
+.form-group textarea,
+form input[type="submit"] {
+  padding: 0.5rem;
+  display: block;
+  margin: 0.5rem auto;
+  border: 0.1rem solid var(--primary-color);
+  width: 60%;
+  text-align: center;
+}
+.form-group label {
+  display: block;
+  text-align: center;
+}
+.comments-area {
+  background: #e0e0e06d;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+.comment-box {
+  justify-self: start;
+}
+.comment-box ul {
+  width: 100%;
+}
+.comment-box .main-comment {
+  padding: 0.5rem;
+  margin: 1.5rem auto;
+  /* background: #486cdf; */
+  border-radius: 5px;
+  box-shadow: 1px 1px#122667;
+  width: 60%;
+}
+.comment-box .main-comment p,
+.comment-box .main-comment h4 {
+  border-bottom: 0.1px dotted #777;
+}
+/* .postcard {
+  width: 100%;
+} */ 
+.post-container .image-container {
+  margin: auto;
+  width: 80%;
+  height: 600px;
+  margin-bottom: 2rem;
+}
+.post-container .image-container img{
+  height: 100%;
+  width: 100%;
+  justify-self: center;
+  align-self: center;
+}
+a {
+  text-decoration: none;
+  /* color: #122667; */
+}
+li {
+  list-style: none;
+}
+.sticker {
+  font-size: 0.9rem;
+  background: var(--secondary-color);
+  display: inline-block;
+  border-radius: 5px;
+  padding: 0.25rem 0.5rem;
+  color: #fff;
+  margin: 1rem auto;
+}
+.main-post {
+  margin-bottom: 2rem;
+}
+.main-post .image-container {
+  /* margin: 0 auto; */
+  width: 100%;
+  height: 600px;
+  margin-bottom: 1.5rem;
+}
+.main-post .image-container img {
+  width: 100%;
+  height: 100%;
+  /* margin: 1rem auto; */
+}
+.caption {
+  text-align: center;
+  padding: 0.5rem;
+  background: #777;
+  border-radius: 10px;
+  margin-bottom: 0.5rem;
+}
+.reactions {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  border-bottom: 1px solid var(--primary-color);
+  padding: 1rem;
+  color: #333;
+}
+.reactions > span > i {
+  padding: 5px;
+}
+/* .love {
+  color: red;
+}
+.like {
+  color: blue;
+}
+.dislike {
+  color: brown;
+} */
+ .main-comment a {
+  color: #333
+} 
+#main-footer {
+  position: relative;
+  /* bottom:-50vh; */
+  padding: 1rem;
+  text-align: center;
+  background: var(--primary-color);
+  color: #fff;
+}

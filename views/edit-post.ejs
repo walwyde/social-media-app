@@ -1,0 +1,38 @@
+<style>
+  label {
+      display: block;
+      margin-bottom: 0.5rem;
+      text-transform: capitalize;
+  }
+  .form-group {
+    margin: 1rem auto;
+    width: 100%;
+  }
+  .container {
+    max-width: 960px;
+    margin: 2rem auto;
+  }
+  input[type=text],
+  textarea {
+    width: 100%;
+    padding: 0.5rem;
+  }
+</style>
+<body>
+  <%- include('./partials/nav.ejs') %>
+  <h1>Site still under construction</h1>
+  <div class="container">
+    <form action="/posts/<%=post._id%>?_method=PUT" method="POST">
+      <div class="form-group">
+        <label for="image">Provide image link (for now)</label>
+        <input type="text" name="post[image]" id="image" value="<%=post.image%>" required>
+      </div>
+      <div class="form-group">
+        <label for="caption"> Add Caption</label>
+        <input type="text" name="post[caption]" value="<%=post.caption%>"></input>
+      </div>
+      <input type="hidden" name="post[time]" value="<% new Date().toDateString() %>">
+      <button type="submit" class="btn">submit</button>
+    </form>
+    </div>
+</body>

@@ -1,0 +1,75 @@
+<%- include("./partials/nav.ejs") %>
+
+<div class="container">
+  <div class="post-container py-1 ">
+    <p class="caption"><%= post.caption%></p>
+    <div class="image-container">
+      <img src="<%=post.image%>" alt="image" />
+      <p><em>Post created by -- </em><strong><a href="/user/<%=post.author.id%>"><%=post.author.username%></a></strong></p>
+      <% if (currentUser && currentUser._id.equals(post.author.id)) { %>
+      <form action="/posts/<%=post._id%>?_method=delete" method="POST">
+        <button class="btn">Delete Post</button>
+      </form>
+      <a href="/posts/<%=post._id%>/edit" class="btn">Edit Post</a>
+      <% } %>
+    </div>
+    </div>
+
+  <div class="comments-area">
+    <% if (!currentUser) { %>
+    <h4 class="tc">You Can't Comment Until You're Logged In</h4>
+    <%} else { %>
+    <div class="new-comment-form">
+      <div class="sticker">leave a comment</div>
+      <form action="/posts/<%=post._id%>/comments" method="POST">
+        <textarea type="text" name="comment[content]" rows="2"></textarea>
+        <input
+          type="hidden"
+          name="comment[time]"
+          value="<%- new Date().toDateString() %>"
+        />
+
+        <input type="submit" class="btn" value="comment" />
+      </form>
+      <%}%>
+    </div>
+
+    <div class="comment-box">
+      <div class="postcard">
+        <% if (post.comments.length > 0) { %>
+        <div class="caption">Comments</div>
+       
+        <ul>
+          <% for (var i = 0; i < post.comments.length; i++){ %>
+          <li class="main-comment">
+            <h4 class="m-2"><a href="/user/<%=post.comments[i].author.id%>"><%=post.comments[i].author.username%></a></h4>
+            <p class="m-1 tc">
+              <a href="/posts/<%=post._id%>/comments/<%=post.comments[i]._id%>"
+                >  <%=post.comments[i].content %></a
+              >
+            </p>
+            <small><%=post.comments[i].time%></small>
+
+            <% if (currentUser &&
+            currentUser._id.equals(post.comments[i].author.id)) { %>
+            <form
+              action="/posts/<%=post.comments[i]._id%>?_method=delete"
+              method="POST"
+            >
+              <input type="submit" class="btn" value="Delete Comment" />
+            </form>
+            <% } %>
+          </li>
+          <% } %>
+        </ul>
+        <% } else { %>
+          <div class="sticker">No comments yet, be the first to comment</div>
+          <% } %>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include("./partials/footer.ejs") %>
+
+
+

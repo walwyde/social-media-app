@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/src/fontsawesome/css/all.min.css">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<nav id="main-nav">
+    <div class="nav-container">
+    <div class="nav-logo"><a href="/"><i class="fas fa-globe fa-3x  "></i>WorldRelate</a></div>
+    <ul>
+      <% if (currentUser) { %>
+        <li><a href="/">Home</a></li>
+        <li><a href="/user/<%= currentUser._id %>"><i class="fas fa-user fa-xs  "></i> <%= currentUser.username%></a></li>
+        <li><a href="/logout">Logout</a></li>
+        <%  } else { %>
+          <li><a href="/Login">Login</a></li>
+          <li><a href="/register">Sign Up</a></li>
+       <%  } %>
+    </ul>
+  </div>
+</nav>
