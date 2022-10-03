@@ -1,24 +1,4 @@
-<!-- <style>
-  label {
-      display: block;
-      margin-bottom: 0.5rem;
-      text-transform: capitalize;
-  }
-  .form-group {
-    margin: 1rem auto;
-    width: 100%;
-  }
-  .container {
-    max-width: 960px;
-    margin: 2rem auto;
-  }
-  input[type=text],
-  textarea {
-    width: 100%;
-    padding: 0.5rem;
-  }
-</style> -->
-<!-- <body> -->
+
   <%- include('./partials/nav.ejs') %>
   <div class="container">
     <h3 class="py-1 tc">Share With Us</h3>
@@ -32,7 +12,9 @@
         <textarea name="post[caption]" rows="2"></textarea>
       </div>
         <input type="hidden" name="post[time]" value="<% new Date().toDateString() %>">
-        <input type="submit" class="btn btn-secondary" value="Submit"/>
+        <div class="form-group">
+          <input type="submit" class="btn btn-secondary" value="Submit"/>
+        </div>
     </form>
     </div>
     <%- include('./partials/footer.ejs') %>

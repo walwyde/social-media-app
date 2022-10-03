@@ -11,25 +11,19 @@
 }
 html,
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   /* padding-top: 2rem; */
-  line-height: 1.5;
+  line-height: 1;
   background: #e0e0e06d;
 }
 #main-nav {
   background: var(--primary-color);
-  /* position: fixed; */
-  /* top: 0; */
-  /* left: 0; */
-  /* width: 100%; */
   overflow: auto;
-  /* opacity: 0.9; */
   color: fff;
 }
 
 #main-nav ul li a,
 #main-nav a {
-  /* color: var(--primary-color); */
   padding: 1rem 0.5rem;
   color: #fff;
 }
@@ -53,7 +47,6 @@ body {
 }
 .container {
   max-width: 960px;
-  padding: 2rem;
   margin: 0.5rem auto;
 }
 .tc {
@@ -65,8 +58,8 @@ body {
   margin: 2rem auto;
 }
 .new-comment-form {
-  width: 70%;
-  /* margin: 1rem auto; */
+  width: 50%;
+  margin: auto;
 }
 .new-comment-form label {
   display: block;
@@ -75,14 +68,30 @@ body {
 .new-comment-form textarea {
   width: 100%;
   padding: 0.5rem;
-  margin-top: 0.5rem;
+  margin: 0.5rem auto;
   display: block;
 }
 .post-container form {
   display: inline-block;
-  margin: 0.5rem 0;
+  margin: 0.2rem 0;
 }
 /* Utilities */
+.alert {
+  padding: 0.5rem;
+  text-align: center;
+}
+.alert-warning {
+  background: yellow;
+  color: #fff;
+}
+.alert-success {
+  background: greenyellow;
+  color: var(--primary-color);
+}
+.alert-danger {
+  background: red;
+  color: #fff;
+}
 .py-1 {
   padding: 1rem;
 }
@@ -98,8 +107,8 @@ body {
 }
 .btn {
   display: inline;
-  padding: 0.5rem;
-  background: #333;
+  padding: 0.2rem;
+  background: var(--secondary-color);
   transition: all 0.4s ease-in;
   border: none;
   color: #fff;
@@ -114,24 +123,44 @@ body {
 .btn-light {
   background: #777;
 }
-.m-auto {
-  margin: 0 auto;
+.btn-danger {
+  background: red;
+  color: #fff;
 }
+
 .my-1 {margin: 0.5rem 0;}
 .my-2 {margin: 1rem 0;}
 .my-3 {margin: 1.5rem 0;}
 
 .bg-secondary {background: #486cdf;}
+
 .form-group input,
 .form-group textarea,
-form input[type="submit"] {
+.form-group input[type="submit"] {
   padding: 0.5rem;
   display: block;
-  margin: 0.5rem auto;
-  border: 0.1rem solid var(--primary-color);
+  margin: 1rem auto;
   width: 60%;
   text-align: center;
 }
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group input[type="date"],
+.form-group input[type="email"],
+.form-group textarea {
+  background: rgba(30,30,30,0.1);
+  border: 0.1rem solid rgba(12,12,12,0.2)
+}
+.form-group input[type="text"]:focus,
+.form-group input[type="password"]:focus,
+.form-group input[type="date"]:focus,
+.form-group input[type="email"]:focus {
+border: 0.2rem solid var(--primary-color);
+border-radius: 5px;
+outline: 0.2rem solid var(--secondary-color);
+background: #fff;
+}
+
 .form-group label {
   display: block;
   text-align: center;
@@ -141,27 +170,21 @@ form input[type="submit"] {
   padding: 1rem;
   margin-top: 2rem;
 }
-.comment-box {
-  justify-self: start;
-}
+
 .comment-box ul {
   width: 100%;
 }
 .comment-box .main-comment {
   padding: 0.5rem;
   margin: 1.5rem auto;
-  /* background: #486cdf; */
   border-radius: 5px;
-  box-shadow: 1px 1px#122667;
   width: 60%;
 }
 .comment-box .main-comment p,
 .comment-box .main-comment h4 {
   border-bottom: 0.1px dotted #777;
 }
-/* .postcard {
-  width: 100%;
-} */ 
+
 .post-container .image-container {
   margin: auto;
   width: 80%;
@@ -174,9 +197,12 @@ form input[type="submit"] {
   justify-self: center;
   align-self: center;
 }
+.post-container a {
+  color: var(--primary-color);
+}
 a {
   text-decoration: none;
-  /* color: #122667; */
+  color: #fff;
 }
 li {
   list-style: none;
@@ -184,17 +210,20 @@ li {
 .sticker {
   font-size: 0.9rem;
   background: var(--secondary-color);
-  display: inline-block;
   border-radius: 5px;
-  padding: 0.25rem 0.5rem;
+  padding: 0.1rem 1rem;
   color: #fff;
   margin: 1rem auto;
+  width: fit-content;
+  
+}
+.m-auto {
+  margin: 0 auto;
 }
 .main-post {
   margin-bottom: 2rem;
 }
 .main-post .image-container {
-  /* margin: 0 auto; */
   width: 100%;
   height: 600px;
   margin-bottom: 1.5rem;
@@ -202,12 +231,10 @@ li {
 .main-post .image-container img {
   width: 100%;
   height: 100%;
-  /* margin: 1rem auto; */
 }
 .caption {
   text-align: center;
   padding: 0.5rem;
-  background: #777;
   border-radius: 10px;
   margin-bottom: 0.5rem;
 }
@@ -233,12 +260,14 @@ li {
 .dislike {
   color: brown;
 } */
+.reactions .comments a {
+  color: var(--primary-color);
+}
  .main-comment a {
   color: #333
 } 
 #main-footer {
   position: relative;
-  /* bottom:-50vh; */
   padding: 1rem;
   text-align: center;
   background: var(--primary-color);

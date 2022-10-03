@@ -29,21 +29,19 @@
           value="<%- new Date().toDateString() %>"
         />
 
-        <input type="submit" class="btn" value="comment" />
+        <input type="submit" class="btn btn-primary" value="comment" />
       </form>
       <%}%>
     </div>
 
     <div class="comment-box">
-      <div class="postcard">
         <% if (post.comments.length > 0) { %>
-        <div class="caption">Comments</div>
-       
         <ul>
+            <div class="caption">Comments</div>
           <% for (var i = 0; i < post.comments.length; i++){ %>
           <li class="main-comment">
             <h4 class="m-2"><a href="/user/<%=post.comments[i].author.id%>"><%=post.comments[i].author.username%></a></h4>
-            <p class="m-1 tc">
+            <p class="m-1 tc py-2">
               <a href="/posts/<%=post._id%>/comments/<%=post.comments[i]._id%>"
                 >  <%=post.comments[i].content %></a
               >
@@ -53,19 +51,19 @@
             <% if (currentUser &&
             currentUser._id.equals(post.comments[i].author.id)) { %>
             <form
-              action="/posts/<%=post.comments[i]._id%>?_method=delete"
+              action="<%=post._id%>/comments/<%=post.comments[i]._id%>?_method=delete"
               method="POST"
             >
-              <input type="submit" class="btn" value="Delete Comment" />
+              <input type="submit" class="btn btn-danger" value="x" />
             </form>
             <% } %>
           </li>
           <% } %>
         </ul>
+        </div>
         <% } else { %>
           <div class="sticker">No comments yet, be the first to comment</div>
           <% } %>
-      </div>
     </div>
   </div>
 </div>

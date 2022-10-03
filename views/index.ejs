@@ -1,15 +1,14 @@
 <%- include("./partials/nav.ejs") %>
-<div class="container">
-<div class="sticker">
+<div class="container alert-head">
+<div class="sticker alert-end">
   <% if (!currentUser) { %> 
     <h4>Please Log In</h4>
   <%} else { %> 
-    <a href="/newpost"><i class="fas fa-pen fa-lg  "></i> Make a New Post</a>
+    <a href="/newpost"> Make a New Post <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
   <%} %>
 </div>
     <% if(posts.length > 0) { %>
       <% for( var i = 0; i < posts.length; i++){ %>
-
         <div class="main-post">
           <div class="image-container">
             <img src="<%= posts[i].image %>" alt="image" />
@@ -33,7 +32,19 @@
         </div>
         <% } %>
     <% } else { %>
-      <h2>there are no posts here yet</h2>
+      <div class="comment-box">
+       
+        <ul>
+    
+          <li class="main-comment">
+            <% if(currentUser) { %> 
+              <h4 class="m-2">Welcome <%=currentUser.username%></h4>
+              <p class="my-1 tc py-2"> There are no post in Your Feed Yet </p> 
+            <%} else { %>  <h4 class="my-2">Welcome Anonymous</h4><%}%>
+
+          </li>
+        </ul>
+    </div>
     <% } %>
 
 </div>

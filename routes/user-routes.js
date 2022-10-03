@@ -23,7 +23,7 @@ router.post('/posts/:id/comments',middleware.isLoggedIn, control.newComment)
 
 router.get("/posts/:post/comments/:comment", control.getComment)
 
-router.delete("/comments/:id", control.deleteComment)
+router.delete("/posts/:post/comments/:comment", middleware.commentAuth, control.deleteComment)
 
 router.put("/posts/:id", middleware.isLoggedIn, control.editPost)
 
